@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>联系我们 - 星辰智造科技有限公司</title>
+<meta name="description" content="联系电话、邮箱、地址与在线留言，欢迎咨询智能制造解决方案。">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body data-page="contact">
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark" data-setting-initial>星</span>
+      <span class="brand-text" data-setting="site_name">星辰智造科技有限公司</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="展开导航">☰</button>
+    <nav class="site-nav">
+      <a href="/">首页</a>
+      <a href="/about.html">关于我们</a>
+      <a href="/services.html">服务项目</a>
+      <a href="/news.html">新闻中心</a>
+      <a href="/contact.html" class="active">联系我们</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section" style="background:#fff;border-bottom:1px solid var(--line);padding-bottom:36px">
+    <div class="container">
+      <span class="eyebrow">Contact</span>
+      <h1>联系我们</h1>
+      <p class="lead">留下您的需求，我们的工程师会在 1 个工作日内与您联系。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="display:grid;grid-template-columns:1fr 340px;gap:30px;align-items:start">
+      <div class="card" style="padding:28px">
+        <h2 style="margin-bottom:18px">在线留言</h2>
+        <form class="form-grid" data-contact-form novalidate>
+          <div class="form-row">
+            <label for="c-name">您的姓名 *</label>
+            <input id="c-name" name="name" type="text" required maxlength="40" placeholder="请输入姓名">
+          </div>
+          <div class="form-row">
+            <label for="c-phone">联系电话</label>
+            <input id="c-phone" name="phone" type="tel" maxlength="40" placeholder="手机或固话">
+          </div>
+          <div class="form-row">
+            <label for="c-email">电子邮箱</label>
+            <input id="c-email" name="email" type="email" maxlength="120" placeholder="name@company.com">
+          </div>
+          <div class="form-row">
+            <label for="c-subject">咨询主题</label>
+            <input id="c-subject" name="subject" type="text" maxlength="80" placeholder="例如：产线自动化改造">
+          </div>
+          <div class="form-row" style="align-items:start">
+            <label for="c-content" style="padding-top:10px">需求描述 *</label>
+            <textarea id="c-content" name="content" rows="6" required maxlength="2000" placeholder="请简要描述您的行业、设备现状与希望解决的问题"></textarea>
+          </div>
+          <div class="hp-field" aria-hidden="true">
+            <label for="c-company">公司名称（请勿填写）</label>
+            <input id="c-company" name="company" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="form-row">
+            <span></span>
+            <div>
+              <button class="btn btn-primary" type="submit" data-submit>提交留言</button>
+              <p class="form-note" style="margin-top:10px" data-setting="contact_notice">提交后我们会在 1 个工作日内与您联系。</p>
+            </div>
+          </div>
+        </form>
+        <div data-form-result></div>
+      </div>
+
+      <aside class="grid" style="gap:16px">
+        <div class="card">
+          <h3>联系方式</h3>
+          <p>服务热线：<strong data-setting="phone">400-888-0000</strong></p>
+          <p>商务邮箱：<span data-setting="email">contact@example.com</span></p>
+          <p>工作时间：<span data-setting="work_time">周一至周五 9:00 - 18:00</span></p>
+          <p>微信：<span data-setting="wechat">xingchen-zhizao</span></p>
+        </div>
+        <div class="card">
+          <h3>公司地址</h3>
+          <p data-setting="address">广东省深圳市南山区科技园科苑路 8 号 18 层</p>
+        </div>
+        <div class="card">
+          <h3>合作流程</h3>
+          <ol style="padding-left:20px;margin:0">
+            <li>提交需求或在线留言</li>
+            <li>1 个工作日内电话沟通</li>
+            <li>现场调研与方案报价</li>
+            <li>签约实施与长期运维</li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h4 data-setting="site_name">星辰智造科技有限公司</h4>
+      <p data-setting="company_intro">星辰智造成立于 2015 年，是一家以工业软件与智能装备为核心的国家高新技术企业。</p>
+    </div>
+    <div>
+      <h4>联系方式</h4>
+      <p>电话：<span data-setting="phone">400-888-0000</span></p>
+      <p>邮箱：<span data-setting="email">contact@example.com</span></p>
+      <p>地址：<span data-setting="address">广东省深圳市南山区</span></p>
+    </div>
+    <div>
+      <h4>快捷入口</h4>
+      <p><a href="/news.html">新闻中心</a></p>
+      <p><a href="/contact.html">在线留言</a></p>
+      <p><a href="/admin/">管理后台</a></p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span data-setting="copyright">© 2025 星辰智造科技有限公司 版权所有</span>
+    <span class="footer-licenses">
+      <span data-setting="icp">粤ICP备00000000号-1</span>
+      <span data-setting="police">粤公网安备 44030000000000号</span>
+    </span>
+  </div>
+</footer>
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>

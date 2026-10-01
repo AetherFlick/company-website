@@ -1,0 +1,13 @@
+# 本地开发环境变量（复制为 .dev.vars 后使用）
+# wrangler pages dev 会自动读取 .dev.vars
+# 该文件不要提交到 Git（已在 .gitignore 中忽略 .dev.vars）
+
+# 用于对访客 IP 做哈希的盐值，请改成随机字符串
+IP_SALT=change-me-to-a-random-string
+
+# 首次登录时若数据库没有管理员账号，会用下面的信息自动创建
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=admin123456
+
+# 站点正式域名（用于生成 sitemap）
+SITE_URL=http://localhost:8788

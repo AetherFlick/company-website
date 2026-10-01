@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>管理后台 - 网站内容与数据管理</title>
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/admin.css">
+</head>
+<body>
+
+<!-- 登录 -->
+<div class="login-wrap" id="login-view" hidden>
+  <form class="login-card" id="login-form">
+    <div class="brand-mark">星</div>
+    <h1>网站管理后台</h1>
+    <p class="sub">请使用管理员账号登录，管理文章、页面与访问数据。</p>
+    <label class="field">
+      <span>用户名</span>
+      <input type="text" name="username" autocomplete="username" required placeholder="admin">
+    </label>
+    <label class="field">
+      <span>密码</span>
+      <input type="password" name="password" autocomplete="current-password" required placeholder="请输入密码">
+    </label>
+    <button class="btn btn-primary" style="width:100%" type="submit" id="login-submit">登录</button>
+    <div id="login-error"></div>
+    <p class="small muted" style="margin-top:16px">
+      首次部署时若数据库中没有账号，使用环境变量 <code>ADMIN_USERNAME</code> / <code>ADMIN_PASSWORD</code> 登录（默认 admin / admin123456），登录后请立即修改密码。
+    </p>
+  </form>
+</div>
+
+<!-- 主界面 -->
+<div class="layout" id="app-view" hidden>
+  <aside class="sidebar">
+    <div class="side-brand">
+      <div class="mark">星</div>
+      <div>
+        <strong data-site-name>公司官网</strong>
+        <span>管理后台</span>
+      </div>
+    </div>
+    <nav class="side-nav" id="side-nav">
+      <a href="#dashboard" data-tab="dashboard">📊 数据看板</a>
+      <a href="#articles" data-tab="articles">📝 文章管理</a>
+      <a href="#categories" data-tab="categories">🗂 分类管理</a>
+      <a href="#services" data-tab="services">🧰 服务项目</a>
+      <a href="#pages" data-tab="pages">📄 单页内容</a>
+      <a href="#messages" data-tab="messages">✉️ 留言管理 <span class="badge-dot" data-new-messages hidden>0</span></a>
+      <a href="#visits" data-tab="visits">📈 访问日志</a>
+      <a href="#settings" data-tab="settings">⚙️ 站点设置</a>
+      <a href="#account" data-tab="account">🔐 账号安全</a>
+    </nav>
+    <div class="side-foot">
+      <div class="name" data-user-name>-</div>
+      <div class="muted" style="font-size:11px" data-user-role>管理员</div>
+      <button class="btn btn-sm" style="margin-top:10px;width:100%" data-logout>退出登录</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1 id="page-heading">数据看板</h1>
+        <div class="hint" id="page-hint">网站访问与内容概览</div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="btn btn-sm" href="/" target="_blank" rel="noopener">查看网站 ↗</a>
+        <button class="btn btn-sm" data-refresh>刷新</button>
+      </div>
+    </header>
+    <section class="content" id="content"></section>
+  </main>
+</div>
+
+<div class="toast-root" id="toast-root"></div>
+<div id="modal-root"></div>
+
+<script src="/assets/js/admin.js" defer></script>
+</body>
+</html>

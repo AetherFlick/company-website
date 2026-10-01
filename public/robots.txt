@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# 部署后请把下面的域名替换为你的正式域名
+Sitemap: https://your-domain.example.com/sitemap.xml

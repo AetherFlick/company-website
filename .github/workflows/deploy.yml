@@ -1,0 +1,45 @@
+name: Deploy to Cloudflare Pages
+
+# 当你把仓库推送到 GitHub 后，此工作流会在每次 main 分支提交时：
+#   1. 应用 D1 数据库迁移（结构 + 演示数据）
+#   2. 部署静态站点与 Functions API 到 Cloudflare Pages
+#
+# 需要在 GitHub 仓库 Settings → Secrets and variables → Actions 中配置：
+#   CLOUDFLARE_API_TOKEN   （权限：Cloudflare Pages:Edit、D1:Edit、Account Settings:Read）
+#   CLOUDFLARE_ACCOUNT_ID  （Cloudflare 控制台右下角 Account ID）
+#
+# 如果你使用「Cloudflare Pages 连接 GitHub 仓库」的自动构建方式，
+# 可以删除本文件，改为在 Pages 控制台里配置构建输出目录与环境变量。
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Build & Deploy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Apply D1 migrations (remote)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: d1 migrations apply company-site-db --remote
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # 目录来自 wrangler.toml 的 pages_build_output_dir，无需重复指定
+          command: pages deploy

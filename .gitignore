@@ -1,0 +1,23 @@
+# 依赖
+node_modules/
+.pnpm-store/
+
+# 本地数据库与 wrangler 缓存
+.data/
+.wrangler/
+wrangler.toml.bak
+
+# 本地密钥（切勿提交）
+.dev.vars
+.env
+.env.local
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
+npm-debug.log*

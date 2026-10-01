@@ -1,0 +1,6 @@
+# 旧路径跳转与规范链接
+/admin            /admin/            301
+/services         /services.html     301
+/about            /about.html        301
+/news             /news.html         301
+/contact          /contact.html      301

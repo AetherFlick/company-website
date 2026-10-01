@@ -1,0 +1,23 @@
+{
+  "name": "company-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "公司官网系统：静态前端 + Cloudflare Pages Functions API + Cloudflare D1 数据库 + 原生 JS 管理后台",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "dev": "node server/dev-server.mjs",
+    "dev:cf": "wrangler pages dev",
+    "db:migrate:local": "wrangler d1 migrations apply company-site-db --local",
+    "db:migrate:remote": "wrangler d1 migrations apply company-site-db --remote",
+    "db:seed:remote": "wrangler d1 execute company-site-db --remote --file=./migrations/0002_seed.sql",
+    "db:studio:local": "wrangler d1 execute company-site-db --local --command \"SELECT name FROM sqlite_master WHERE type='table'\"",
+    "deploy": "wrangler pages deploy",
+    "tail": "wrangler pages deployment tail"
+  },
+  "devDependencies": {
+    "wrangler": "^4.20.0"
+  }
+}
